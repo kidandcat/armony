@@ -1,5 +1,5 @@
 # armony 
-[![GPLv3](https://img.shields.io/aur/license/yaourt.svg)](LICENSE) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](README.md#contribute)
+[![GPLv3](https://img.shields.io/aur/license/yaourt.svg)](LICENSE) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](README.md#contribute) [![GitHub stars](https://img.shields.io/github/stars/badges/shields.svg?style=social&label=Stars)]()
 
 Golang Web Framework
 

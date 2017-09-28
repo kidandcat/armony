@@ -1,7 +1,7 @@
 # armony 
 [![GPLv3](https://img.shields.io/aur/license/yaourt.svg)](LICENSE) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](README.md#contribute)
 
-Golang Web Framework
+Golang Web Framework for fast development
 
 ### Install
 

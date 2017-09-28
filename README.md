@@ -1,5 +1,5 @@
 # armony 
-[![GPLv3](https://img.shields.io/aur/license/yaourt.svg)](LICENSE) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](README.md#contribute)
+[![GPLv3](https://img.shields.io/aur/license/yaourt.svg)](LICENSE) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](README.md#contribute) [![GoDoc](https://godoc.org/github.com/kidandcat/armony?status.svg)](https://godoc.org/github.com/kidandcat/armony)
 
 Golang Web Framework for fast development
 
@@ -74,7 +74,7 @@ func main() {
 
 ### Documentation
 
-Soon
+[![GoDoc](https://godoc.org/github.com/kidandcat/armony?status.svg)](https://godoc.org/github.com/kidandcat/armony)
 
 ### Contribute
 

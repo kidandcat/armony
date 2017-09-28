@@ -74,5 +74,3 @@ func main() {
 
 Soon
 
-
-### License

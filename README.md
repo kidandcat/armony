@@ -1,4 +1,6 @@
-# armony
+# armony 
+[![GPLv3](https://img.shields.io/aur/license/yaourt.svg)](LICENSE) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](README.md#contribute)
+
 Golang Web Framework
 
 ### Install
@@ -74,3 +76,8 @@ func main() {
 
 Soon
 
+### Contribute
+
+Please send a GitHub Pull Request to armony with a clear list of what you've done (read more about pull requests). Please make sure all of your commits are atomic (one feature per commit).
+
+Always write a clear log message for your commits.

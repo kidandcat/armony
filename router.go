@@ -3,12 +3,13 @@ package armony
 import (
 	"net/http"
 	"net/url"
+	"strings"
 )
 
 type routes map[string]Controller
 
 // Controller : A type representing a controller funcion
-type Controller func(*http.ResponseWriter, *http.Request, *Session) string
+type Controller func(*http.ResponseWriter, *http.Request, *Session) (string, interface{})
 
 // Routes : all routes
 var Routes routes
@@ -22,12 +23,19 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 	u, _ := url.Parse(r.RequestURI)
 
 	if fn, ok := Routes[u.EscapedPath()]; ok {
-		res := fn(&w, r, &ss)
-
+		res, data := fn(&w, r, &ss)
 		if res != "" {
-			err := Templates.ExecuteTemplate(w, res, nil)
-			if err != nil {
-				http.Error(w, err.Error(), http.StatusInternalServerError)
+
+			//Options
+			command := strings.Split(res, ":")[0]
+			param := strings.Split(res, ":")[1]
+
+			switch command {
+			case "template":
+				err := Templates.ExecuteTemplate(w, param, data)
+				if err != nil {
+					http.Error(w, err.Error(), http.StatusInternalServerError)
+				}
 			}
 		}
 	}

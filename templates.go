@@ -7,6 +7,9 @@ import (
 // Templates : *template.Template
 var Templates *template.Template
 
+// Data : Represents a map of strings
+type Data map[string]string
+
 // ParseTemplates : Parse templates from configured folders
 func ParseTemplates(templateFolders []string) {
 	Templates = &template.Template{}

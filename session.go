@@ -6,7 +6,7 @@ import (
 	"time"
 )
 
-// Session : Object representing a session
+// Session Object representing a session
 type Session struct {
 	w *http.ResponseWriter
 	r *http.Request
@@ -26,7 +26,7 @@ func (ss *Session) getCookie(key string) string {
 	return cookie.Value
 }
 
-//Set : Set a key:value pair in the session
+//Set a key:value pair in the session
 func (ss *Session) Set(key string, value string) {
 	if ss.getCookie("_ID") == "" {
 		return
@@ -34,7 +34,7 @@ func (ss *Session) Set(key string, value string) {
 	kvSet(strings.Trim(ss.getCookie("_ID")+key, " "), value)
 }
 
-//Get : Get a value from the session
+//Get a value from the session
 func (ss *Session) Get(key string) string {
 	k := strings.Trim(ss.getCookie("_ID")+key, " ")
 	value := kvGet(k)
@@ -45,7 +45,7 @@ func (ss *Session) setSessionID() {
 	ss.setCookie("_ID", RandString(10))
 }
 
-// LoadSession : Look for a existing session || load a new one
+// LoadSession look for a existing session || load a new one
 func LoadSession(w *http.ResponseWriter, r *http.Request) Session {
 	ss := Session{
 		w: w,

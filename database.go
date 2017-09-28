@@ -3,11 +3,14 @@ package armony
 import (
 	"fmt"
 	"os"
+	"os/signal"
 
 	"github.com/dgraph-io/badger"
 )
 
 var kv *badger.KV
+
+var databaseLoaded = false
 
 // LoadDatabase : Load database in "database" Dir
 func LoadDatabase() error {
@@ -20,6 +23,18 @@ func LoadDatabase() error {
 	opt.ValueDir = dir
 	auxKv, err := badger.NewKV(&opt)
 	kv = auxKv
+	databaseLoaded = true
+
+	c := make(chan os.Signal, 1)
+	signal.Notify(c, os.Interrupt)
+	go func() {
+		for sig := range c {
+			fmt.Println("Signal received:", sig)
+			CloseDatabase()
+			os.Exit(0)
+		}
+	}()
+
 	return err
 }
 
@@ -29,7 +44,9 @@ func kvSet(key string, value string) {
 
 // CloseDatabase : Gracefully closes the database
 func CloseDatabase() {
-	kv.Close()
+	if databaseLoaded {
+		kv.Close()
+	}
 }
 
 func kvGet(key string) string {

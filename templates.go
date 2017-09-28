@@ -11,7 +11,7 @@ var Templates *template.Template
 func ParseTemplates(templateFolders []string) {
 	Templates = &template.Template{}
 	empty := true
-	for _, v := range TemplateFolders {
+	for _, v := range templateFolders {
 		if empty {
 			Templates = template.Must(template.ParseGlob(v + "/*.html"))
 			empty = false
